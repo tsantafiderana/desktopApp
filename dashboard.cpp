@@ -3,6 +3,7 @@
 #include <QStandardItemModel>
 #include <QIcon>
 #include <QMap>
+#include <QHeaderView>
 
 Dashboard::Dashboard(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +25,8 @@ Dashboard::Dashboard(QWidget *parent)
     // Page par défaut - Dashboard
     updateActiveButton(ui->btn_dashboard, ":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png");
     ui->stackedWidget->setCurrentIndex(0);
+    ui->frame_menu_container->setStyleSheet(DARK_THEME_MENU);
+    ui->page->setStyleSheet(DARK_THEME_PAGE);
 }
 
 Dashboard::~Dashboard()
@@ -54,11 +57,13 @@ void Dashboard::initializeReservationTable()
 {
     // Configuration du modèle
     QStandardItemModel *modelReservation = new QStandardItemModel(5, 5, this);
-    modelReservation->setHorizontalHeaderLabels({"GUEST NAME", "ROOM NUMBER", "CHECK-IN", "CHECK-OUT", "STATUS"});
+    modelReservation->setHorizontalHeaderLabels({"Guest Name", "Room Number", "Check-in", "Check-out", "Status"});
 
     // Configuration de la vue
     ui->tableView_reservation->setModel(modelReservation);
     ui->tableView_reservation->verticalHeader()->setVisible(false);
+    ui->tableView_reservation->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->tableView_reservation->setFocusPolicy(Qt::NoFocus);
 
     // Configuration des largeurs de colonnes
     ui->tableView_reservation->setColumnWidth(0, 260);
@@ -69,8 +74,12 @@ void Dashboard::initializeReservationTable()
 
     // Configuration des hauteurs de lignes
     for(int i = 0; i < modelReservation->rowCount(); i++) {
-        ui->tableView_reservation->setRowHeight(i, 50);
+        ui->tableView_reservation->setRowHeight(i, 64);
     }
+
+    // Style de l'en-tête
+    ui->tableView_reservation->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
+    ui->tableView_reservation->horizontalHeader()->setStretchLastSection(true);
 
     // Application du style
     ui->tableView_reservation->setStyleSheet(TABLE_VIEW_STYLE);
@@ -82,12 +91,14 @@ void Dashboard::initializeReservationTable()
 void Dashboard::initializeOccupancyTable()
 {
     // Configuration du modèle
-    QStandardItemModel *modelOccupancy = new QStandardItemModel(4, 4, this);
-    modelOccupancy->setHorizontalHeaderLabels({"ROOM NUMBER", "ROOM TYPE", "STATUS", "GUESTNAME"});
+    QStandardItemModel *modelOccupancy = new QStandardItemModel(6, 4, this);
+    modelOccupancy->setHorizontalHeaderLabels({"Room Number", "Room Type", "Status", "Guest Name"});
 
     // Configuration de la vue
     ui->tableView_occupancy->setModel(modelOccupancy);
     ui->tableView_occupancy->verticalHeader()->setVisible(false);
+    ui->tableView_occupancy->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->tableView_occupancy->setFocusPolicy(Qt::NoFocus);
 
     // Configuration des largeurs de colonnes
     ui->tableView_occupancy->setColumnWidth(0, 320);
@@ -97,8 +108,12 @@ void Dashboard::initializeOccupancyTable()
 
     // Configuration des hauteurs de lignes
     for(int i = 0; i < modelOccupancy->rowCount(); i++) {
-        ui->tableView_occupancy->setRowHeight(i, 50);
+        ui->tableView_occupancy->setRowHeight(i, 64);
     }
+
+    // Style de l'en-tête
+    ui->tableView_occupancy->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
+    ui->tableView_occupancy->horizontalHeader()->setStretchLastSection(true);
 
     // Application du style
     ui->tableView_occupancy->setStyleSheet(TABLE_VIEW_STYLE);
@@ -112,46 +127,50 @@ void Dashboard::fillReservationTableWithTemplateData()
     QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableView_reservation->model());
     if (!model) return;
 
-    // Données template pour les réservations
-    QStringList guestNames = {"Jean Dupont", "Marie Martin", "Pierre Durand", "Sophie Lambert", "Lucie Petit"};
-    QStringList roomNumbers = {"101", "205", "312", "104", "208"};
-    QStringList checkInDates = {"2024-01-15", "2024-01-16", "2024-01-17", "2024-01-18", "2024-01-19"};
-    QStringList checkOutDates = {"2024-01-20", "2024-01-22", "2024-01-25", "2024-01-21", "2024-01-26"};
-    QStringList statuses = {"Confirmed", "Pending", "Confirmed", "Cancelled", "Confirmed"};
+    // Données template pour les réservations (basées sur le HTML)
+    QStringList guestNames = {"Ethan Harper", "Olivia Bennett", "Noah Carter", "Ava Morgan", "Liam Foster"};
+    QStringList roomNumbers = {"101", "205", "310", "112", "215"};
+    QStringList checkInTimes = {"14:00", "15:00", "16:00", "17:00", "18:00"};
+    QStringList checkOutTimes = {"11:00", "12:00", "13:00", "14:00", "15:00"};
+    QStringList statuses = {"Confirmed", "Checked In", "Pending", "Confirmed", "Checked In"};
 
     for (int row = 0; row < model->rowCount(); ++row) {
         // GUEST NAME
         QStandardItem *guestItem = new QStandardItem(guestNames[row]);
+        guestItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 0, guestItem);
 
         // ROOM NUMBER
         QStandardItem *roomItem = new QStandardItem(roomNumbers[row]);
+        roomItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 1, roomItem);
 
         // CHECK-IN
-        QStandardItem *checkInItem = new QStandardItem(checkInDates[row]);
+        QStandardItem *checkInItem = new QStandardItem(checkInTimes[row]);
+        checkInItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 2, checkInItem);
 
         // CHECK-OUT
-        QStandardItem *checkOutItem = new QStandardItem(checkOutDates[row]);
+        QStandardItem *checkOutItem = new QStandardItem(checkOutTimes[row]);
+        checkOutItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 3, checkOutItem);
 
         // STATUS
         QStandardItem *statusItem = new QStandardItem(statuses[row]);
+        statusItem->setTextAlignment(Qt::AlignCenter);
 
-        // Appliquer des couleurs selon le statut
+        // Appliquer des couleurs selon le statut (basé sur le HTML)
         if (statuses[row] == "Confirmed") {
-            statusItem->setForeground(QBrush(QColor("#155724")));
-            statusItem->setBackground(QBrush(QColor("#d4edda")));
+            statusItem->setForeground(QBrush(QColor("#065f46")));
+            statusItem->setBackground(QBrush(QColor("#d1fae5")));
+        } else if (statuses[row] == "Checked In") {
+            statusItem->setForeground(QBrush(QColor("#1e40af")));
+            statusItem->setBackground(QBrush(QColor("#dbeafe")));
         } else if (statuses[row] == "Pending") {
-            statusItem->setForeground(QBrush(QColor("#856404")));
-            statusItem->setBackground(QBrush(QColor("#fff3cd")));
-        } else if (statuses[row] == "Cancelled") {
-            statusItem->setForeground(QBrush(QColor("#721c24")));
-            statusItem->setBackground(QBrush(QColor("#f8d7da")));
+            statusItem->setForeground(QBrush(QColor("#92400e")));
+            statusItem->setBackground(QBrush(QColor("#fef3c7")));
         }
 
-        statusItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 4, statusItem);
     }
 }
@@ -161,41 +180,41 @@ void Dashboard::fillOccupancyTableWithTemplateData()
     QStandardItemModel *model = qobject_cast<QStandardItemModel*>(ui->tableView_occupancy->model());
     if (!model) return;
 
-    // Données template pour l'occupation
-    QStringList roomNumbers = {"101", "102", "201", "202"};
-    QStringList roomTypes = {"Single Bed", "Double Bed", "Suite", "Double Bed"};
-    QStringList statuses = {"Occupied", "Available", "Occupied", "Maintenance"};
-    QStringList guestNames = {"Jean Dupont", "-", "Marie Martin", "-"};
+    // Données template pour l'occupation (basées sur le HTML)
+    QStringList roomNumbers = {"101", "102", "201", "202", "301", "302"};
+    QStringList roomTypes = {"Standard", "Standard", "Deluxe", "Deluxe", "Suite", "Suite"};
+    QStringList statuses = {"Occupied", "Available", "Occupied", "Available", "Occupied", "Available"};
+    QStringList guestNames = {"Ethan Harper", "-", "Olivia Bennett", "-", "Noah Carter", "-"};
 
     for (int row = 0; row < model->rowCount(); ++row) {
         // ROOM NUMBER
         QStandardItem *roomItem = new QStandardItem(roomNumbers[row]);
+        roomItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 0, roomItem);
 
         // ROOM TYPE
         QStandardItem *typeItem = new QStandardItem(roomTypes[row]);
+        typeItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 1, typeItem);
 
         // STATUS
         QStandardItem *statusItem = new QStandardItem(statuses[row]);
+        statusItem->setTextAlignment(Qt::AlignCenter);
 
-        // Appliquer des couleurs selon le statut
+        // Appliquer des couleurs selon le statut (basé sur le HTML)
         if (statuses[row] == "Occupied") {
-            statusItem->setForeground(QBrush(QColor("#155724")));
-            statusItem->setBackground(QBrush(QColor("#d4edda")));
+            statusItem->setForeground(QBrush(QColor("#991b1b")));
+            statusItem->setBackground(QBrush(QColor("#fecaca")));
         } else if (statuses[row] == "Available") {
-            statusItem->setForeground(QBrush(QColor("#856404")));
-            statusItem->setBackground(QBrush(QColor("#fff3cd")));
-        } else if (statuses[row] == "Maintenance") {
-            statusItem->setForeground(QBrush(QColor("#721c24")));
-            statusItem->setBackground(QBrush(QColor("#f8d7da")));
+            statusItem->setForeground(QBrush(QColor("#065f46")));
+            statusItem->setBackground(QBrush(QColor("#d1fae5")));
         }
 
-        statusItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 2, statusItem);
 
         // GUEST NAME
         QStandardItem *guestItem = new QStandardItem(guestNames[row]);
+        guestItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 3, guestItem);
     }
 }
