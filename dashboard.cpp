@@ -2,6 +2,7 @@
 #include "ui_dashboard.h"
 #include <QStandardItemModel>
 #include <QIcon>
+#include <QMap>
 
 Dashboard::Dashboard(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +20,10 @@ Dashboard::Dashboard(QWidget *parent)
     initializeMenuButtons();
     initializeReservationTable();
     initializeOccupancyTable();
+
+    // Page par défaut - Dashboard
+    updateActiveButton(ui->btn_dashboard, ":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png");
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 Dashboard::~Dashboard()
@@ -28,8 +33,8 @@ Dashboard::~Dashboard()
 
 void Dashboard::initializeMenuButtons()
 {
-    // Configuration des icônes des boutons de menu
-    ui->btn_dashboard->setIcon(QIcon(":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png"));
+    // Configuration des icônes des boutons de menu avec icônes inactives par défaut
+    ui->btn_dashboard->setIcon(QIcon(":/new/iconsfade/icons/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"));
     ui->btn_dashboard->setIconSize(QSize(24, 24));
 
     ui->btn_reservation->setIcon(QIcon(":/new/icons/icons/date_range_35dp_6B7280_FILL0_wght400_GRAD0_opsz40.png"));
@@ -121,7 +126,6 @@ void Dashboard::fillReservationTableWithTemplateData()
 
         // ROOM NUMBER
         QStandardItem *roomItem = new QStandardItem(roomNumbers[row]);
-       // roomItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 1, roomItem);
 
         // CHECK-IN
@@ -166,7 +170,6 @@ void Dashboard::fillOccupancyTableWithTemplateData()
     for (int row = 0; row < model->rowCount(); ++row) {
         // ROOM NUMBER
         QStandardItem *roomItem = new QStandardItem(roomNumbers[row]);
-        //roomItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 0, roomItem);
 
         // ROOM TYPE
@@ -195,4 +198,70 @@ void Dashboard::fillOccupancyTableWithTemplateData()
         QStandardItem *guestItem = new QStandardItem(guestNames[row]);
         model->setItem(row, 3, guestItem);
     }
+}
+
+void Dashboard::updateActiveButton(QPushButton* activeButton, QString path)
+{
+    // Map locale pour stocker les icônes inactives de chaque bouton
+    static QMap<QPushButton*, QString> inactiveIcons = {
+        {ui->btn_dashboard, ":/new/iconsfade/icons/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"},
+        {ui->btn_reservation, ":/new/icons/icons/date_range_35dp_6B7280_FILL0_wght400_GRAD0_opsz40.png"},
+        {ui->btn_guest, ":/new/icons/icons/person_2_35dp_6B7280_FILL0_wght400_GRAD0_opsz40.png"},
+        {ui->btn_report, ":/new/icons/icons/bar_chart_4_bars_35dp_6B7280_FILL0_wght400_GRAD0_opsz40.png"},
+        {ui->btn_room, ":/new/icons/icons/bed_35dp_6B7280_FILL0_wght400_GRAD0_opsz40.png"}
+    };
+
+    QList<QPushButton*> menuButtons = {
+        ui->btn_dashboard,
+        ui->btn_reservation,
+        ui->btn_room,
+        ui->btn_guest,
+        ui->btn_report
+    };
+
+    for (QPushButton* button : menuButtons) {
+        if (button == activeButton) {
+            // Style et icône active
+            button->setStyleSheet(BUTTON_STYLE_ACTIVE);
+            button->setIcon(QIcon(path));
+        } else {
+            // Style et icône inactive
+            button->setStyleSheet(BUTTON_STYLE_INACTIVE);
+            if (inactiveIcons.contains(button)) {
+                button->setIcon(QIcon(inactiveIcons[button]));
+            }
+        }
+    }
+}
+
+// ==================== SLOTS DE NAVIGATION ====================
+
+void Dashboard::on_btn_dashboard_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    updateActiveButton(ui->btn_dashboard, ":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png");
+}
+
+void Dashboard::on_btn_reservation_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    updateActiveButton(ui->btn_reservation, ":/new/iconsfade/icons/date_range_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg");
+}
+
+void Dashboard::on_btn_room_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    updateActiveButton(ui->btn_room, ":/new/iconsfade/icons/bed_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg");
+}
+
+void Dashboard::on_btn_guest_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    updateActiveButton(ui->btn_guest, ":/new/iconsfade/icons/person_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg");
+}
+
+void Dashboard::on_btn_report_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+    updateActiveButton(ui->btn_report, ":/new/iconsfade/icons/bar_chart_4_bars_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg");
 }

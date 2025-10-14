@@ -2,6 +2,7 @@
 #define DASHBOARD_H
 
 #include <QMainWindow>
+#include <QPushButton>
 
 namespace Ui {
 class Dashboard;
@@ -15,6 +16,17 @@ public:
     explicit Dashboard(QWidget *parent = nullptr);
     ~Dashboard();
 
+private slots:
+    void on_btn_reservation_clicked();
+
+    void on_btn_dashboard_clicked();
+
+    void on_btn_room_clicked();
+
+    void on_btn_guest_clicked();
+
+    void on_btn_report_clicked();
+
 private:
     Ui::Dashboard *ui;
 
@@ -22,8 +34,9 @@ private:
     void initializeMenuButtons();
     void initializeReservationTable();
     void initializeOccupancyTable();
-    void fillReservationTableWithTemplateData();  // ← NOUVELLE MÉTHODE
-    void fillOccupancyTableWithTemplateData();    // ← NOUVELLE MÉTHODE
+    void fillReservationTableWithTemplateData();
+    void fillOccupancyTableWithTemplateData();
+    void updateActiveButton(QPushButton* activeButton, QString path);
 
     // Style commun pour les tableaux
     const QString TABLE_VIEW_STYLE = R"(
@@ -52,6 +65,31 @@ private:
         QTableView {
             show-decoration-selected: 0;
         }
+    )";
+
+    const QString BUTTON_STYLE_INACTIVE = R"(
+        QPushButton {
+            border : none;
+            text-align : left;
+            padding : 0 0 0 20px;
+            color : black;
+            font-size : 15.5px;
+            border-radius : 10px;
+        }
+    )";
+
+    const QString BUTTON_STYLE_ACTIVE = R"(
+        QPushButton {
+            border : none;
+            text-align : left;
+            padding : 0 0 0 20px;
+            color : #1194d4;
+            font-weight : bold;
+            font-size : 15.5px;
+            background-color  : #E7F4FB;
+            border-radius : 10px;
+        }
+
     )";
 };
 

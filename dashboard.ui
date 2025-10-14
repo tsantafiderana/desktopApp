@@ -31,7 +31,7 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -133,20 +133,7 @@ font : 17.5px bold;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#btn_dashboard {
-border : none;
-text-align : left;
-padding : 0 0 0 20px;
-color : #1194d4;
-font-weight : bold;
-font-size : 15.5px;
-background-color  : #E7F4FB;
-border-radius : 10px;
-}
-
-#btn_dashboard::icon{
-		border : 2px solid black;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Dashboard</string>
@@ -694,7 +681,34 @@ color : black;</string>
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_2"/>
+            <widget class="QWidget" name="page_reservation">
+             <widget class="QLabel" name="label_8">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>231</width>
+                <height>71</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Manage Reservations</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_9">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>90</y>
+                <width>231</width>
+                <height>71</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>View and manage all reservations</string>
+              </property>
+             </widget>
+            </widget>
            </widget>
           </item>
          </layout>

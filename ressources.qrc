@@ -9,5 +9,11 @@
         <file>icons/person_2_35dp_6B7280_FILL0_wght400_GRAD0_opsz40.png</file>
         <file>icons/Night_sehelter_pm.svg</file>
     </qresource>
-    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/new/iconsfade">
+        <file>icons/date_range_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>icons/bed_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>icons/person_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>icons/bar_chart_4_bars_24dp_1194D4_FILL0_wght400_GRAD0_opsz24.svg</file>
+        <file>icons/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg</file>
+    </qresource>
 </RCC>
