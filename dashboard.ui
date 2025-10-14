@@ -294,7 +294,7 @@ border-radius : 10px;
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-320</y>
            <width>1347</width>
            <height>1020</height>
           </rect>
@@ -685,45 +685,364 @@ color : black;</string>
              </layout>
             </widget>
             <widget class="QWidget" name="page_2">
-             <property name="layoutDirection">
-              <enum>Qt::LayoutDirection::LeftToRight</enum>
-             </property>
              <layout class="QVBoxLayout" name="verticalLayout_page2">
               <item>
-               <widget class="QLabel" name="label_page2_title">
-                <property name="styleSheet">
-                 <string notr="true">color : black;
+               <widget class="QWidget" name="widget_page2_header" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_14">
+                 <item>
+                  <widget class="QLabel" name="label_page2_title">
+                   <property name="styleSheet">
+                    <string notr="true">color : black;
             font-weight : bold;
             font-size : 30px;</string>
-                </property>
-                <property name="text">
-                 <string>Page Reservations</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_page2_subtitle">
-                <property name="styleSheet">
-                 <string notr="true">color : rgb(107, 114, 128);
+                   </property>
+                   <property name="text">
+                    <string>Manage Reservations</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_page2_subtitle">
+                   <property name="styleSheet">
+                    <string notr="true">color : rgb(107, 114, 128);
             font-size : 15px;</string>
-                </property>
-                <property name="text">
-                 <string>Manage and view all reservations</string>
-                </property>
+                   </property>
+                   <property name="text">
+                    <string>View and manage all reservations</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
               <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
+               <widget class="QFrame" name="frame_new_reservation">
+                <property name="minimumSize">
                  <size>
-                  <width>20</width>
-                  <height>40</height>
+                  <width>0</width>
+                  <height>200</height>
                  </size>
                 </property>
-               </spacer>
+                <property name="styleSheet">
+                 <string notr="true">#frame_new_reservation {
+                background-color: white;
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+            }</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_15">
+                 <item>
+                  <widget class="QLabel" name="label_new_reservation_title">
+                   <property name="styleSheet">
+                    <string notr="true">color : black;
+            font-weight : bold;
+            font-size : 20px;
+            margin: 8px;</string>
+                   </property>
+                   <property name="text">
+                    <string>New Reservation</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget_reservation_form" native="true">
+                   <layout class="QGridLayout" name="gridLayout_reservation">
+                    <item row="0" column="0" colspan="2">
+                     <widget class="QLabel" name="label_client">
+                      <property name="styleSheet">
+                       <string notr="true">color : black;
+            font-size : 14px;
+            font-weight : bold;
+            margin-bottom: 4px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Client</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0" colspan="2">
+                     <widget class="QComboBox" name="comboBox_client">
+                      <property name="styleSheet">
+                       <string notr="true">QComboBox {
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+                padding: 12px;
+                background-color: #f6f7f8;
+                color: black;
+            }
+            QComboBox:focus {
+                border-color: #1193d4;
+            }</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Search for a client...</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Sophia Clark</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Ethan Carter</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_checkin">
+                      <property name="styleSheet">
+                       <string notr="true">color : black;
+            font-size : 14px;
+            font-weight : bold;
+            margin-bottom: 4px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Check-in Date</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLabel" name="label_checkout">
+                      <property name="styleSheet">
+                       <string notr="true">color : black;
+            font-size : 14px;
+            font-weight : bold;
+            margin-bottom: 4px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Check-out Date</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLineEdit" name="lineEdit_checkin">
+                      <property name="styleSheet">
+                       <string notr="true">QLineEdit {
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+                padding: 12px;
+                background-color: #f6f7f8;
+                color: black;
+            }
+            QLineEdit:focus {
+                border-color: #1193d4;
+            }</string>
+                      </property>
+                      <property name="text">
+                       <string>July 5, 2024</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="QLineEdit" name="lineEdit_checkout">
+                      <property name="styleSheet">
+                       <string notr="true">QLineEdit {
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+                padding: 12px;
+                background-color: #f6f7f8;
+                color: black;
+            }
+            QLineEdit:focus {
+                border-color: #1193d4;
+            }</string>
+                      </property>
+                      <property name="text">
+                       <string>July 11, 2024</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="0">
+                     <widget class="QLabel" name="label_room_type">
+                      <property name="styleSheet">
+                       <string notr="true">color : black;
+            font-size : 14px;
+            font-weight : bold;
+            margin-bottom: 4px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Room Type</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="1">
+                     <widget class="QLabel" name="label_total_price">
+                      <property name="styleSheet">
+                       <string notr="true">color : black;
+            font-size : 14px;
+            font-weight : bold;
+            margin-bottom: 4px;</string>
+                      </property>
+                      <property name="text">
+                       <string>Total Price</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="0">
+                     <widget class="QComboBox" name="comboBox_room_type">
+                      <property name="styleSheet">
+                       <string notr="true">QComboBox {
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+                padding: 12px;
+                background-color: #f6f7f8;
+                color: black;
+            }
+            QComboBox:focus {
+                border-color: #1193d4;
+            }</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Standard Room</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Deluxe Suite</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Executive Room</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                    <item row="5" column="1">
+                     <widget class="QLineEdit" name="lineEdit_total_price">
+                      <property name="styleSheet">
+                       <string notr="true">QLineEdit {
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+                padding: 12px;
+                background-color: #f6f7f8;
+                color: #6b7280;
+            }
+            QLineEdit:disabled {
+                background-color: #f3f4f6;
+            }</string>
+                      </property>
+                      <property name="text">
+                       <string>$750.00</string>
+                      </property>
+                      <property name="readOnly">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="6" column="0" colspan="2">
+                     <layout class="QHBoxLayout" name="horizontalLayout_buttons">
+                      <item>
+                       <widget class="QPushButton" name="btn_book_reservation">
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton {
+                background-color: #1193d4;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 8px 16px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #0f7bb4;
+            }</string>
+                        </property>
+                        <property name="text">
+                         <string>Book Reservation</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="btn_cancel_reservation">
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton {
+                background-color: #f6f7f8;
+                color: black;
+                border: none;
+                border-radius: 8px;
+                padding: 8px 16px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #e5e7eb;
+            }</string>
+                        </property>
+                        <property name="text">
+                         <string>Cancel</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_current_reservations" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>300</height>
+                 </size>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_16">
+                 <item>
+                  <widget class="QLabel" name="label_current_reservations_title">
+                   <property name="styleSheet">
+                    <string notr="true">color : black;
+            font-weight : bold;
+            font-size : 20px;
+            margin-bottom: 8px;</string>
+                   </property>
+                   <property name="text">
+                    <string>Current Reservations</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableView" name="tableView_current_reservations">
+                   <property name="styleSheet">
+                    <string notr="true">QTableView {
+                background-color: white;
+                border: 1px solid #dbe2e6;
+                border-radius: 8px;
+                gridline-color: transparent;
+            }
+            QHeaderView::section {
+                background-color: #f9fafb;
+                padding: 16px;
+                border: none;
+                font-weight: bold;
+                color: black;
+            }
+            QTableView::item {
+                border-bottom: 1px solid #f6f7f8;
+                padding: 16px;
+            }</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </item>
              </layout>
             </widget>
