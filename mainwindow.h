@@ -17,7 +17,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_btnSubmit_clicked();
+
 private:
     Ui::MainWindow *ui;
+    class Dashboard *dashboard;
+
 };
 #endif // MAINWINDOW_H

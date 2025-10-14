@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     // Créer et afficher le Dashboard
-    Dashboard dashboard;
+    MainWindow dashboard;
     dashboard.setWindowTitle("Hotel Management System - Dashboard");
     dashboard.show();
 
