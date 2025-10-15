@@ -3,6 +3,16 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QStyledItemDelegate>
+
+class BadgeItemDelegate : public QStyledItemDelegate
+{
+public:
+    explicit BadgeItemDelegate(QObject *parent = nullptr) : QStyledItemDelegate(parent) {}
+
+protected:
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+};
 
 namespace Ui {
 class Dashboard;
@@ -18,19 +28,15 @@ public:
 
 private slots:
     void on_btn_reservation_clicked();
-
     void on_btn_dashboard_clicked();
-
     void on_btn_room_clicked();
-
     void on_btn_guest_clicked();
-
     void on_btn_report_clicked();
 
 private:
     Ui::Dashboard *ui;
+    BadgeItemDelegate *m_badgeDelegate;
 
-    // Méthodes d'initialisation organisées
     void initializeMenuButtons();
     void initializeReservationTable();
     void initializeOccupancyTable();
@@ -38,7 +44,6 @@ private:
     void fillOccupancyTableWithTemplateData();
     void updateActiveButton(QPushButton* activeButton, QString path);
 
-    // Style commun pour les tableaux
     const QString TABLE_VIEW_STYLE = R"(
         QTableView {
             border: 1px solid #2d3f4a;
@@ -54,6 +59,7 @@ private:
             padding: 12px 24px;
             background-color: #18262d;
             color: #e2f3f4;
+            font-size : 15px;
         }
         QTableView::item:alternate {
             background-color: #18262d;
@@ -65,7 +71,7 @@ private:
             border-bottom: 1px solid #2d3f4a;
             color: #e2f3f4;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 12.25px;
             text-transform: uppercase;
         }
         QTableView QTableCornerButton::section {
@@ -162,11 +168,6 @@ private:
             color : #e2f3f4;
         }
 
-        #tableView_reservation, #tableView_occupancy {
-            border: 1px solid #2d3f4a;
-            border-radius: 8px;
-            background-color: #18262d;
-        }
     )";
 };
 

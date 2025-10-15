@@ -4,10 +4,79 @@
 #include <QIcon>
 #include <QMap>
 #include <QHeaderView>
+#include <QFont>
+#include <QPainter>
+
+// Implémentation du delegate pour les badges
+void BadgeItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    QStyleOptionViewItem opt = option;
+    initStyleOption(&opt, index);
+
+    // Sauvegarder l'état du painter
+    painter->save();
+
+    // Déterminer les couleurs selon le statut
+    QString status = index.data(Qt::DisplayRole).toString();
+    QColor badgeColor, textColor;
+
+    if (status == "Confirmed") {
+        badgeColor = QColor("#163d2d");
+        textColor = QColor("#86efac");
+    } else if (status == "Checked In") {
+        badgeColor = QColor("#1b3058");
+        textColor = QColor("#93c5ee");
+    } else if (status == "Pending") {
+        badgeColor = QColor("#45331f");
+        textColor = QColor("#fdd532");
+    } else if (status == "Occupied") {
+        badgeColor = QColor("#4c2225");
+        textColor = QColor("#fc9978");
+    } else if (status == "Available") {
+        badgeColor = QColor("#163d2d");
+        textColor = QColor("#86efac");
+    } else {
+        // Par défaut, utiliser la méthode standard
+        QStyledItemDelegate::paint(painter, option, index);
+        painter->restore();
+        return;
+    }
+
+    // Calculer la taille du badge
+    QFont badgeFont = opt.font;
+    badgeFont.setBold(true);
+    badgeFont.setPointSize(badgeFont.pointSize() - 1);
+
+    QFontMetrics fm(badgeFont);
+    int textWidth = fm.horizontalAdvance(status);
+    int badgeWidth = textWidth + 30; // Padding horizontal
+    int badgeHeight = fm.height() + 10; // Padding vertical
+
+    // Centrer le badge dans la cellule
+    QRect badgeRect = opt.rect;
+    badgeRect.setWidth(badgeWidth);
+    badgeRect.setHeight(badgeHeight);
+    badgeRect.moveCenter(opt.rect.center());
+
+    // Dessiner le badge avec coins arrondis
+    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setBrush(badgeColor);
+    painter->setPen(Qt::NoPen);
+    painter->drawRoundedRect(badgeRect, 12, 12);
+
+    // Dessiner le texte centré dans le badge
+    painter->setFont(badgeFont);
+    painter->setPen(textColor);
+    painter->drawText(badgeRect, Qt::AlignCenter, status);
+
+    // Restaurer l'état du painter
+    painter->restore();
+}
 
 Dashboard::Dashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Dashboard)
+    , m_badgeDelegate(new BadgeItemDelegate(this))
 {
     ui->setupUi(this);
 
@@ -65,6 +134,12 @@ void Dashboard::initializeReservationTable()
     ui->tableView_reservation->setSelectionMode(QAbstractItemView::NoSelection);
     ui->tableView_reservation->setFocusPolicy(Qt::NoFocus);
 
+    // Appliquer le delegate pour la colonne Status
+    ui->tableView_reservation->setItemDelegateForColumn(4, m_badgeDelegate);
+
+    // IMPORTANT: Désactiver l'alternance des couleurs qui peut interférer
+    ui->tableView_reservation->setAlternatingRowColors(false);
+
     // Configuration des largeurs de colonnes
     ui->tableView_reservation->setColumnWidth(0, 260);
     ui->tableView_reservation->setColumnWidth(1, 255);
@@ -99,6 +174,12 @@ void Dashboard::initializeOccupancyTable()
     ui->tableView_occupancy->verticalHeader()->setVisible(false);
     ui->tableView_occupancy->setSelectionMode(QAbstractItemView::NoSelection);
     ui->tableView_occupancy->setFocusPolicy(Qt::NoFocus);
+
+    // Appliquer le delegate pour la colonne Status
+    ui->tableView_occupancy->setItemDelegateForColumn(2, m_badgeDelegate);
+
+    // IMPORTANT: Désactiver l'alternance des couleurs qui peut interférer
+    ui->tableView_occupancy->setAlternatingRowColors(false);
 
     // Configuration des largeurs de colonnes
     ui->tableView_occupancy->setColumnWidth(0, 320);
@@ -155,22 +236,9 @@ void Dashboard::fillReservationTableWithTemplateData()
         checkOutItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 3, checkOutItem);
 
-        // STATUS
+        // STATUS - Le delegate s'occupe de l'affichage
         QStandardItem *statusItem = new QStandardItem(statuses[row]);
-        statusItem->setTextAlignment(Qt::AlignCenter);
-
-        // Appliquer des couleurs selon le statut (basé sur le HTML)
-        if (statuses[row] == "Confirmed") {
-            statusItem->setForeground(QBrush(QColor("#065f46")));
-            statusItem->setBackground(QBrush(QColor("#d1fae5")));
-        } else if (statuses[row] == "Checked In") {
-            statusItem->setForeground(QBrush(QColor("#1e40af")));
-            statusItem->setBackground(QBrush(QColor("#dbeafe")));
-        } else if (statuses[row] == "Pending") {
-            statusItem->setForeground(QBrush(QColor("#92400e")));
-            statusItem->setBackground(QBrush(QColor("#fef3c7")));
-        }
-
+        //statusItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 4, statusItem);
     }
 }
@@ -197,19 +265,9 @@ void Dashboard::fillOccupancyTableWithTemplateData()
         typeItem->setForeground(QBrush(QColor("#e2f3f4")));
         model->setItem(row, 1, typeItem);
 
-        // STATUS
+        // STATUS - Le delegate s'occupe de l'affichage
         QStandardItem *statusItem = new QStandardItem(statuses[row]);
-        statusItem->setTextAlignment(Qt::AlignCenter);
-
-        // Appliquer des couleurs selon le statut (basé sur le HTML)
-        if (statuses[row] == "Occupied") {
-            statusItem->setForeground(QBrush(QColor("#991b1b")));
-            statusItem->setBackground(QBrush(QColor("#fecaca")));
-        } else if (statuses[row] == "Available") {
-            statusItem->setForeground(QBrush(QColor("#065f46")));
-            statusItem->setBackground(QBrush(QColor("#d1fae5")));
-        }
-
+        //statusItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 2, statusItem);
 
         // GUEST NAME
