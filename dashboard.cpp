@@ -6,6 +6,8 @@
 #include <QHeaderView>
 #include <QFont>
 #include <QPainter>
+#include <QFile>
+#include <QApplication>
 
 // Implémentation du delegate pour les badges
 void BadgeItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -73,6 +75,22 @@ void BadgeItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->restore();
 }
 
+// Nouvelle méthode pour charger le fichier QSS
+void Dashboard::loadStylesheet()
+{
+    QFile styleFile(":/styles/styles.qss"); // Si dans les ressources Qt
+    // QFile styleFile("styles.qss"); // Si dans le répertoire de l'exécutable
+
+    if (!styleFile.open(QFile::ReadOnly)) {
+        qWarning("Impossible d'ouvrir le fichier de style");
+        return;
+    }
+
+    QString styleSheet = QLatin1String(styleFile.readAll());
+    qApp->setStyleSheet(styleSheet); // Appliquer à toute l'application
+    styleFile.close();
+}
+
 Dashboard::Dashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Dashboard)
@@ -80,11 +98,21 @@ Dashboard::Dashboard(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Charger le style avant toute configuration
+    loadStylesheet();
+
     // Configuration de la fenêtre
     setWindowTitle("Hotel Management System - Dashboard");
     setMinimumSize(1024, 768);
     setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
     setWindowFlags(windowFlags() | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
+
+    // Configurer les classes CSS pour les boutons de menu
+    ui->btn_dashboard->setProperty("class", "menu-button");
+    ui->btn_reservation->setProperty("class", "menu-button");
+    ui->btn_guest->setProperty("class", "menu-button");
+    ui->btn_report->setProperty("class", "menu-button");
+    ui->btn_room->setProperty("class", "menu-button");
 
     // Initialisation organisée
     initializeMenuButtons();
@@ -94,8 +122,8 @@ Dashboard::Dashboard(QWidget *parent)
     // Page par défaut - Dashboard
     updateActiveButton(ui->btn_dashboard, ":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png");
     ui->stackedWidget->setCurrentIndex(0);
-    ui->frame_menu_container->setStyleSheet(DARK_THEME_MENU);
-    ui->page->setStyleSheet(DARK_THEME_PAGE);
+
+    // Les styles sont maintenant gérés par le QSS, plus besoin de setStyleSheet ici
 }
 
 Dashboard::~Dashboard()
@@ -156,8 +184,8 @@ void Dashboard::initializeReservationTable()
     ui->tableView_reservation->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui->tableView_reservation->horizontalHeader()->setStretchLastSection(true);
 
-    // Application du style
-    ui->tableView_reservation->setStyleSheet(TABLE_VIEW_STYLE);
+    // Plus besoin de setStyleSheet ici, géré par le QSS
+    // ui->tableView_reservation->setStyleSheet(TABLE_VIEW_STYLE);
 
     // Remplissage avec des données template
     fillReservationTableWithTemplateData();
@@ -196,8 +224,8 @@ void Dashboard::initializeOccupancyTable()
     ui->tableView_occupancy->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui->tableView_occupancy->horizontalHeader()->setStretchLastSection(true);
 
-    // Application du style
-    ui->tableView_occupancy->setStyleSheet(TABLE_VIEW_STYLE);
+    // Plus besoin de setStyleSheet ici, géré par le QSS
+    // ui->tableView_occupancy->setStyleSheet(TABLE_VIEW_STYLE);
 
     // Remplissage avec des données template
     fillOccupancyTableWithTemplateData();
@@ -238,7 +266,6 @@ void Dashboard::fillReservationTableWithTemplateData()
 
         // STATUS - Le delegate s'occupe de l'affichage
         QStandardItem *statusItem = new QStandardItem(statuses[row]);
-        //statusItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 4, statusItem);
     }
 }
@@ -267,7 +294,6 @@ void Dashboard::fillOccupancyTableWithTemplateData()
 
         // STATUS - Le delegate s'occupe de l'affichage
         QStandardItem *statusItem = new QStandardItem(statuses[row]);
-        //statusItem->setTextAlignment(Qt::AlignCenter);
         model->setItem(row, 2, statusItem);
 
         // GUEST NAME
@@ -298,16 +324,20 @@ void Dashboard::updateActiveButton(QPushButton* activeButton, QString path)
 
     for (QPushButton* button : menuButtons) {
         if (button == activeButton) {
-            // Style et icône active
-            button->setStyleSheet(BUTTON_STYLE_ACTIVE);
+            // Style et icône active - utiliser les propriétés pour CSS
+            button->setProperty("active", true);
             button->setIcon(QIcon(path));
         } else {
-            // Style et icône inactive
-            button->setStyleSheet(BUTTON_STYLE_INACTIVE);
+            // Style et icône inactive - utiliser les propriétés pour CSS
+            button->setProperty("active", false);
             if (inactiveIcons.contains(button)) {
                 button->setIcon(QIcon(inactiveIcons[button]));
             }
         }
+
+        // Forcer la mise à jour du style
+        button->style()->unpolish(button);
+        button->style()->polish(button);
     }
 }
 

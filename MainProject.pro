@@ -55,4 +55,4 @@ RESOURCES += \
     ressources.qrc
 
 DISTFILES += \
-    DashboardDarkTheme.qss
+    styles.qss

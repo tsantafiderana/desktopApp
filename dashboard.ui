@@ -47,9 +47,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">#frame_menu_container{
-        background-color : white;
-}</string>
+         <string notr="true"/>
         </property>
         <property name="frameShape">
          <enum>QFrame::Shape::StyledPanel</enum>
@@ -150,14 +148,7 @@
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#btn_reservation {
-border : none;
-text-align : left;
-padding : 0 0 0 20px;
-color : black;
-font-size : 15.5px;
-border-radius : 10px;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Reservations</string>
@@ -179,14 +170,7 @@ border-radius : 10px;
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#btn_room {
-border : none;
-text-align : left;
-padding : 0 0 0 20px;
-color : black;
-font-size : 15.5px;
-border-radius : 10px;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Rooms</string>
@@ -208,14 +192,7 @@ border-radius : 10px;
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#btn_guest {
-border : none;
-text-align : left;
-padding : 0 0 0 20px;
-color : black;
-font-size : 15.5px;
-border-radius : 10px;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Guests</string>
@@ -237,14 +214,7 @@ border-radius : 10px;
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#btn_report {
-border : none;
-text-align : left;
-padding : 0 0 0 20px;
-color : black;
-font-size : 15.5px;
-border-radius : 10px;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Reports</string>
@@ -642,9 +612,7 @@ background-color : #101c22;;
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_2">
-
-            </widget>
+            <widget class="QWidget" name="page_2"/>
            </widget>
           </item>
          </layout>

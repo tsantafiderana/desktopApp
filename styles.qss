@@ -1,0 +1,157 @@
+/* ===== THEME PRINCIPAL ===== */
+QMainWindow {
+    background-color: #101c22;
+}
+
+/* ===== MENU LATÉRAL ===== */
+#frame_menu_container {
+    background-color: #18262d;
+}
+
+#label_menu_title {
+    color: #F0F3F4;
+    font: bold 17.5px;
+}
+
+#label_icon {
+    background-color: #1193d4;
+    border-radius: 10px;
+}
+
+/* ===== PAGES ===== */
+#page {
+    background-color: #101c22;
+}
+
+#label_3 {
+    color: #F0F3F5;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#label_4 {
+    color: #84a4aa;
+    font-size: 15px;
+    padding: 0 0 0 10px;
+}
+
+#label_5, #label_6, #label_7 {
+    color: #F0F3F4;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0 0 0 7.5px;
+}
+
+#label_10, #label_18, #label_22 {
+    font: 500 14px;
+    background-color: transparent;
+    padding: 10px;
+    color: #859eae;
+}
+
+#widget_availability, #widget_occupying, #widget_checkins {
+    border: 2px solid #2d3f4a;
+    background-color: #18262d;
+    border-radius: 8px;
+}
+
+#label_11, #label_19, #label_23 {
+    background-color: #18262d;
+    font: bold 30px;
+    padding: 8px;
+    color: #e2f3f4;
+}
+
+/* ===== BOUTONS MENU ===== */
+QPushButton[class="menu-button"] {
+    border: none;
+    text-align: left;
+    padding: 0 0 0 20px;
+    color: #90A4AE;
+    font-size: 15.5px;
+    border-radius: 10px;
+}
+
+QPushButton[class="menu-button"]:hover {
+    background-color: #16384e;
+    font-weight : bold;
+    border : none;
+}
+
+QPushButton[class="menu-button"][active="true"] {
+    border: none;
+    text-align: left;
+    padding: 0 0 0 20px;
+    color: #1194d4;
+    font-weight: bold;
+    font-size: 15.5px;
+    background-color: #16384e;
+    border-radius: 10px;
+}
+
+/* ===== TABLES ===== */
+QTableView {
+    border: 1px solid #2d3f4a;
+    border-radius: 8px;
+    background-color: #18262d;
+    gridline-color: transparent;
+    color: #e2f3f4;
+    alternate-background-color: #18262d;
+}
+
+QTableView::item {
+    border: none;
+    border-bottom: 1px solid #2d3f4a;
+    padding: 12px 24px;
+    background-color: #18262d;
+    color: #e2f3f4;
+    font-size: 15px;
+}
+
+QTableView::item:alternate {
+    background-color: #18262d;
+}
+
+QHeaderView::section {
+    background-color: #101c22;
+    padding: 12px 24px;
+    border: none;
+    border-bottom: 1px solid #2d3f4a;
+    color: #e2f3f4;
+    font-weight: bold;
+    font-size: 12.25px;
+    text-transform: uppercase;
+}
+
+QTableView QTableCornerButton::section {
+    background-color: #101c22;
+    border: none;
+    border-bottom: 1px solid #2d3f4a;
+    border-right: 1px solid #2d3f4a;
+}
+
+/* ===== BADGES (pour le delegate) ===== */
+.badge-confirmed {
+    background-color: #163d2d;
+    color: #86efac;
+}
+
+.badge-checked-in {
+    background-color: #1b3058;
+    color: #93c5ee;
+}
+
+.badge-pending {
+    background-color: #45331f;
+    color: #fdd532;
+}
+
+.badge-occupied {
+    background-color: #4c2225;
+    color: #fc9978;
+}
+
+.badge-available {
+    background-color: #163d2d;
+    color: #86efac;
+}
