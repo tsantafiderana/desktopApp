@@ -46,9 +46,6 @@
           <height>16777215</height>
          </size>
         </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
         <property name="frameShape">
          <enum>QFrame::Shape::StyledPanel</enum>
         </property>
@@ -73,9 +70,6 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
               <property name="text">
                <string/>
               </property>
@@ -86,9 +80,6 @@
             </item>
             <item>
              <widget class="QLabel" name="label_menu_title">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
               <property name="text">
                <string>Home Manager</string>
               </property>
@@ -105,11 +96,6 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton::hover {
-        background-color : #E7F4FB;
-}</string>
-           </property>
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <widget class="QPushButton" name="btn_dashboard">
@@ -124,9 +110,6 @@
                 <width>0</width>
                 <height>50</height>
                </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
               </property>
               <property name="text">
                <string>Dashboard</string>
@@ -147,9 +130,6 @@
                 <height>50</height>
                </size>
               </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
               <property name="text">
                <string>Reservations</string>
               </property>
@@ -168,9 +148,6 @@
                 <width>0</width>
                 <height>50</height>
                </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
               </property>
               <property name="text">
                <string>Rooms</string>
@@ -191,9 +168,6 @@
                 <height>50</height>
                </size>
               </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
               <property name="text">
                <string>Guests</string>
               </property>
@@ -212,9 +186,6 @@
                 <width>0</width>
                 <height>50</height>
                </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
               </property>
               <property name="text">
                <string>Reports</string>
@@ -244,12 +215,6 @@
           <height>16777215</height>
          </size>
         </property>
-        <property name="styleSheet">
-         <string notr="true">#scrollArea {
-        border : none;
-background-color : #101c22;;
-}</string>
-        </property>
         <property name="sizeAdjustPolicy">
          <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
         </property>
@@ -261,23 +226,15 @@ background-color : #101c22;;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1347</width>
-           <height>924</height>
+           <width>1345</width>
+           <height>1152</height>
           </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color : #101c22</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="layoutDirection">
              <enum>Qt::LayoutDirection::LeftToRight</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">#page{
-        background-color : transparent;
-}</string>
             </property>
             <widget class="QWidget" name="page">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -289,15 +246,9 @@ background-color : #101c22;;
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_8">
                  <item>
                   <widget class="QLabel" name="label_3">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
                    <property name="text">
                     <string>Dashboard</string>
                    </property>
@@ -305,9 +256,6 @@ background-color : #101c22;;
                  </item>
                  <item>
                   <widget class="QLabel" name="label_4">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
                    <property name="text">
                     <string>Overviews of today's operation and keys metrics</string>
                    </property>
@@ -327,9 +275,6 @@ background-color : #101c22;;
                 <layout class="QVBoxLayout" name="verticalLayout_12">
                  <item>
                   <widget class="QLabel" name="label_5">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
                    <property name="text">
                     <string>Quick Stats</string>
                    </property>
@@ -337,11 +282,6 @@ background-color : #101c22;;
                  </item>
                  <item>
                   <widget class="QFrame" name="frame">
-                   <property name="styleSheet">
-                    <string notr="true">QWidget {
-                border-radius : 20px;
-}</string>
-                   </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_4">
                     <item>
                      <widget class="QWidget" name="widget_availability" native="true">
@@ -363,15 +303,9 @@ background-color : #101c22;;
                         <height>16777215</height>
                        </size>
                       </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
                       <layout class="QVBoxLayout" name="verticalLayout_9">
                        <item>
                         <widget class="QLabel" name="label_10">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
                          <property name="text">
                           <string>Available rooms</string>
                          </property>
@@ -379,9 +313,6 @@ background-color : #101c22;;
                        </item>
                        <item>
                         <widget class="QLabel" name="label_11">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
                          <property name="text">
                           <string>25</string>
                          </property>
@@ -417,15 +348,9 @@ background-color : #101c22;;
                         <height>16777215</height>
                        </size>
                       </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
                       <layout class="QVBoxLayout" name="verticalLayout_10">
                        <item>
                         <widget class="QLabel" name="label_18">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
                          <property name="text">
                           <string>Occupied rooms</string>
                          </property>
@@ -433,9 +358,6 @@ background-color : #101c22;;
                        </item>
                        <item>
                         <widget class="QLabel" name="label_19">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
                          <property name="text">
                           <string>75</string>
                          </property>
@@ -477,15 +399,9 @@ background-color : #101c22;;
                         <height>16777215</height>
                        </size>
                       </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
                       <layout class="QVBoxLayout" name="verticalLayout_11">
                        <item>
                         <widget class="QLabel" name="label_22">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
                          <property name="text">
                           <string>Check-ins today</string>
                          </property>
@@ -493,9 +409,6 @@ background-color : #101c22;;
                        </item>
                        <item>
                         <widget class="QLabel" name="label_23">
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
                          <property name="text">
                           <string>10</string>
                          </property>
@@ -521,9 +434,6 @@ background-color : #101c22;;
                 <layout class="QVBoxLayout" name="verticalLayout_13">
                  <item>
                   <widget class="QLabel" name="label_6">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
                    <property name="text">
                     <string>Today's Reservations</string>
                    </property>
@@ -537,11 +447,8 @@ background-color : #101c22;;
                      <height>350</height>
                     </size>
                    </property>
-                   <property name="styleSheet">
-                    <string notr="true">border: none; outline: none;</string>
-                   </property>
                    <property name="verticalScrollBarPolicy">
-                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
                    </property>
                    <property name="horizontalScrollBarPolicy">
                     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
@@ -577,9 +484,6 @@ background-color : #101c22;;
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <item>
                   <widget class="QLabel" name="label_7">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
                    <property name="text">
                     <string>Rooms Occupancy</string>
                    </property>
@@ -593,11 +497,8 @@ background-color : #101c22;;
                      <height>350</height>
                     </size>
                    </property>
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
                    <property name="verticalScrollBarPolicy">
-                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                    <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
                    </property>
                    <property name="horizontalScrollBarPolicy">
                     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
@@ -612,7 +513,599 @@ background-color : #101c22;;
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_2"/>
+            <widget class="QWidget" name="page_2">
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <item>
+               <widget class="QWidget" name="widget_header_2" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_15">
+                 <item>
+                  <widget class="QLabel" name="label_reservation_title">
+                   <property name="text">
+                    <string>Gestion des Réservations</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_reservation_subtitle">
+                   <property name="text">
+                    <string>Consulter et gérer toutes les réservations</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_reservation_content" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>650</height>
+                 </size>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QFrame" name="frame_reservation_form_container">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>800</width>
+                     <height>600</height>
+                    </size>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_16">
+                    <item>
+                     <widget class="QLabel" name="label_new_reservation">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Nouvelle Réservation</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QGridLayout" name="gridLayout_2">
+                      <item row="5" column="1">
+                       <widget class="QDateEdit" name="dateEdit_checkout">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>370</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="displayFormat">
+                         <string>dd/MM/yyyy</string>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="0">
+                       <widget class="QDateEdit" name="dateEdit_checkin">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>370</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="displayFormat">
+                         <string>dd/MM/yyyy</string>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="0">
+                       <widget class="QLabel" name="label_room_type">
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Type de chambre</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="1">
+                       <widget class="QLabel" name="label_checkout">
+                        <property name="text">
+                         <string>Date de départ</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="10" column="0" colspan="2">
+                       <widget class="QFrame" name="frame_btn">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>500</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_7">
+                         <item>
+                          <widget class="QPushButton" name="btn_reserve">
+                           <property name="minimumSize">
+                            <size>
+                             <width>100</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Réserver</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="btn_receipt">
+                           <property name="minimumSize">
+                            <size>
+                             <width>150</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Générer un reçu</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="btn_cancel">
+                           <property name="minimumSize">
+                            <size>
+                             <width>100</width>
+                             <height>40</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>Annuler</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="7" column="1">
+                       <widget class="QSpinBox" name="spinBox_guests">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>370</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <property name="minimum">
+                         <number>1</number>
+                        </property>
+                        <property name="maximum">
+                         <number>4</number>
+                        </property>
+                        <property name="value">
+                         <number>1</number>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="0">
+                       <widget class="QLabel" name="label_checkin">
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Date d'arrivée</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="0" colspan="2">
+                       <widget class="QLineEdit" name="combo_client">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="placeholderText">
+                         <string>Nom du client</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="9" column="0">
+                       <widget class="QLineEdit" name="lineEdit_total_price">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>$0.00</string>
+                        </property>
+                        <property name="readOnly">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="0" colspan="2">
+                       <widget class="QLabel" name="label_client">
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Client</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="6" column="1">
+                       <widget class="QLabel" name="label_guests">
+                        <property name="text">
+                         <string>Nombre de personnes</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_phone">
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Phone number</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="8" column="0">
+                       <widget class="QLabel" name="label_total_price">
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Prix total</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="7" column="0">
+                       <widget class="QComboBox" name="combo_room_type">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>370</width>
+                          <height>16777215</height>
+                         </size>
+                        </property>
+                        <item>
+                         <property name="text">
+                          <string>Sélectionner...</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Chambre Standard - $100/nuit</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Suite Deluxe - $200/nuit</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Chambre Executive - $150/nuit</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLineEdit" name="lineEdit_phone">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="placeholderText">
+                         <string>+261 XX XX XXX XX</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLabel" name="label_email">
+                        <property name="maximumSize">
+                         <size>
+                          <width>16777215</width>
+                          <height>35</height>
+                         </size>
+                        </property>
+                        <property name="text">
+                         <string>Email</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_email">
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                        <property name="placeholderText">
+                         <string>youremail@gmail.com</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget_calendar_container" native="true">
+                   <property name="minimumSize">
+                    <size>
+                     <width>350</width>
+                     <height>500</height>
+                    </size>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_17">
+                    <item>
+                     <widget class="QLabel" name="label_calendar_title">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>50</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Calendrier des réservations</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCalendarWidget" name="calendarWidget">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>450</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>500</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <property name="horizontalHeaderFormat">
+                       <enum>QCalendarWidget::HorizontalHeaderFormat::SingleLetterDayNames</enum>
+                      </property>
+                      <property name="verticalHeaderFormat">
+                       <enum>QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader</enum>
+                      </property>
+                      <property name="navigationBarVisible">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget_current_reservations" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_18">
+                 <item>
+                  <widget class="QFrame" name="horizontalFrame">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                     <widget class="QLabel" name="label_current_reservations">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Réservations en cours</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Orientation::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="btn_select_all">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>90</width>
+                        <height>35</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>All</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="btn_select_confirmed">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>90</width>
+                        <height>35</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Confirmed</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="btn_select_pending">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>90</width>
+                        <height>35</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Pending</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableView" name="tableView_reservations">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>300</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </widget>
           </item>
          </layout>

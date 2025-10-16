@@ -55,4 +55,5 @@ RESOURCES += \
     ressources.qrc
 
 DISTFILES += \
+    page_2.qss \
     styles.qss

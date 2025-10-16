@@ -18,5 +18,6 @@
     </qresource>
     <qresource prefix="/styles">
         <file>styles.qss</file>
+        <file>page_2.qss</file>
     </qresource>
 </RCC>

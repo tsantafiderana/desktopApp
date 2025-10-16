@@ -75,11 +75,10 @@ void BadgeItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->restore();
 }
 
-// Nouvelle méthode pour charger le fichier QSS
+
 void Dashboard::loadStylesheet()
 {
-    QFile styleFile(":/styles/styles.qss"); // Si dans les ressources Qt
-    // QFile styleFile("styles.qss"); // Si dans le répertoire de l'exécutable
+    QFile styleFile(":/styles/styles.qss");
 
     if (!styleFile.open(QFile::ReadOnly)) {
         qWarning("Impossible d'ouvrir le fichier de style");
@@ -87,7 +86,7 @@ void Dashboard::loadStylesheet()
     }
 
     QString styleSheet = QLatin1String(styleFile.readAll());
-    qApp->setStyleSheet(styleSheet); // Appliquer à toute l'application
+    qApp->setStyleSheet(styleSheet);
     styleFile.close();
 }
 
@@ -98,32 +97,32 @@ Dashboard::Dashboard(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Charger le style avant toute configuration
+
     loadStylesheet();
 
-    // Configuration de la fenêtre
+
     setWindowTitle("Hotel Management System - Dashboard");
     setMinimumSize(1024, 768);
     setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
     setWindowFlags(windowFlags() | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
 
-    // Configurer les classes CSS pour les boutons de menu
+
     ui->btn_dashboard->setProperty("class", "menu-button");
     ui->btn_reservation->setProperty("class", "menu-button");
     ui->btn_guest->setProperty("class", "menu-button");
     ui->btn_report->setProperty("class", "menu-button");
     ui->btn_room->setProperty("class", "menu-button");
 
-    // Initialisation organisée
+
     initializeMenuButtons();
     initializeReservationTable();
     initializeOccupancyTable();
 
-    // Page par défaut - Dashboard
-    updateActiveButton(ui->btn_dashboard, ":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png");
-    ui->stackedWidget->setCurrentIndex(0);
 
-    // Les styles sont maintenant gérés par le QSS, plus besoin de setStyleSheet ici
+    updateActiveButton(ui->btn_dashboard, ":/new/icons/icons/home_35dp_1193D4_FILL0_wght400_GRAD0_opsz40.png");
+    ui->stackedWidget->setCurrentIndex(1);
+
+
 }
 
 Dashboard::~Dashboard()
@@ -133,7 +132,7 @@ Dashboard::~Dashboard()
 
 void Dashboard::initializeMenuButtons()
 {
-    // Configuration des icônes des boutons de menu avec icônes inactives par défaut
+
     ui->btn_dashboard->setIcon(QIcon(":/new/iconsfade/icons/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"));
     ui->btn_dashboard->setIconSize(QSize(24, 24));
 

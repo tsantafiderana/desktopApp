@@ -43,14 +43,7 @@ private:
     void fillReservationTableWithTemplateData();
     void fillOccupancyTableWithTemplateData();
     void updateActiveButton(QPushButton* activeButton, QString path);
-    void loadStylesheet(); // NOUVELLE MÉTHODE
-
-    // SUPPRIMER toutes les constantes de style QString
-    // const QString TABLE_VIEW_STYLE = R"(...)" -> SUPPRIMÉ
-    // const QString BUTTON_STYLE_INACTIVE = R"(...)" -> SUPPRIMÉ
-    // const QString BUTTON_STYLE_ACTIVE = R"(...)" -> SUPPRIMÉ
-    // const QString DARK_THEME_MENU = R"(...)" -> SUPPRIMÉ
-    // const QString DARK_THEME_PAGE = R"(...)" -> SUPPRIMÉ
+    void loadStylesheet();
 };
 
 #endif // DASHBOARD_H
